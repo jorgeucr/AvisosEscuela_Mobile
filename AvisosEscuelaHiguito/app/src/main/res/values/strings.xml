@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Avisos Escuela Higuito</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_splash_screen">Splash_screen</string>
+    <string-array name="categorias_array">
+        <item>No Seleccionado</item>
+        <item>Banda</item>
+        <item>Kinder</item>
+        <item>Primer grado</item>
+        <item>Segundo grado</item>
+        <item>Tercer grado</item>
+        <item>Cuarto grado</item>
+        <item>Quinto grado</item>
+        <item>Sexto grado</item>
+    </string-array>
+    <string name="title_activity_creditos">Creditos</string>
+    <string name="creditos">
+        Objetivo: Informar de forma oportuna a los padres de familia relacionados a la Escuela Higuito del Guarco en temas del acontecer diario de la institución.
+    </string>
+    <string name="creditos_tcu">
+        Trabajo Comunal Universitario 606 de la Universidad de Costa Rica
+    </string>
+    <string name="title_activity_lista_avisos">ListaAvisos</string>
+    <string name="title_activity_test">Test</string>
+    <string name="title_activity_test22">Test22</string>
+    <string name="title_activity_descripcion_avisos">DescripcionAvisos</string>
+    <string name="title_activity_info_lista_avisos">InfoListaAvisos</string>
+</resources>
