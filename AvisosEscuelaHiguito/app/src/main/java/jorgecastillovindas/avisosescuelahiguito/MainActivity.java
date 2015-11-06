@@ -20,15 +20,30 @@ import java.util.List;
 
 public class MainActivity extends ActionBarActivity {
 
-    String categoriaSeleccionada;
     ListViewAdapter adapter;
     String[] titulo = new String[]{
             "Avisos Generales",
-            "Acerca de",
+            "Kinder",
+            "Primer grado",
+            "Segundo grado",
+            "Tercer grado",
+            "Cuarto grado",
+            "Quinto grado",
+            "Sexto grado",
+            "Banda",
+            "Acerca de"
     };
 
     int[] imagenes = {
             R.drawable.report,
+            R.drawable.icon_kinder,
+            R.drawable.icon_primero,
+            R.drawable.icon_segundo,
+            R.drawable.icon_tercero,
+            R.drawable.icon_cuarto,
+            R.drawable.icon_quinto,
+            R.drawable.icon_sexto,
+            R.drawable.icon_musica,
             R.drawable.credit
 
     };
@@ -39,7 +54,7 @@ public class MainActivity extends ActionBarActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         getSupportActionBar().hide();
 
-        //Fill spinner
+        /*//Fill spinner
         Spinner spinner = (Spinner) findViewById(R.id.sprCategorias);
         ArrayAdapter<CharSequence> adapterSpinner = ArrayAdapter.createFromResource(this,
                 R.array.categorias_array, android.R.layout.simple_spinner_item);
@@ -82,7 +97,7 @@ public class MainActivity extends ActionBarActivity {
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
-        });
+        });*/
 
          final ListView lista = (ListView) findViewById(R.id.lvwOpciones);
          adapter = new ListViewAdapter(this, titulo, imagenes);
@@ -91,15 +106,40 @@ public class MainActivity extends ActionBarActivity {
          lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
              @Override
              public void onItemClick(AdapterView adapterView, View view, int i, long l) {
-                 if (i == 1) {
-                     startActivity(new Intent(MainActivity.this, Creditos.class));
-                 }else if(i==0){
-                     Bundle bundle = new Bundle();
+                 Bundle bundle = new Bundle();
+                 if (i == 0) {
                      bundle.putString("categoriaAviso", "General");
-                     Intent intent = new Intent(MainActivity.this, ListaAvisos.class);
-                     intent.putExtras(bundle);
-                     startActivity(intent);
+                 }else if(i==1){
+                     bundle.putString("categoriaAviso", "Kinder");
                  }
+                 else if(i==2){
+                     bundle.putString("categoriaAviso", "Primer grado");
+                 }
+                 else if(i==3){
+                     bundle.putString("categoriaAviso", "Segundo grado");
+                 }
+                 else if(i==4){
+                     bundle.putString("categoriaAviso", "Tercer grado");
+                 }
+                 else if(i==5){
+                     bundle.putString("categoriaAviso", "Cuarto grado");
+                 }
+                 else if(i==6){
+                     bundle.putString("categoriaAviso", "Quinto grado");
+                 }
+                 else if(i==7){
+                     bundle.putString("categoriaAviso", "Sexto grado");
+                 }
+                 else if(i==8){
+                     bundle.putString("categoriaAviso", "Banda");
+                 }
+                 else if(i==9){
+                     startActivity(new Intent(MainActivity.this, Creditos.class));
+                     return;
+                 }
+                 Intent intent = new Intent(MainActivity.this, ListaAvisos.class);
+                 intent.putExtras(bundle);
+                 startActivity(intent);
              }
          });
 

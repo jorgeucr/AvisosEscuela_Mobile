@@ -12,6 +12,10 @@
         android:maxSdkVersion="18" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
+    <android:uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/iconapp"
@@ -49,6 +53,7 @@
             android:label="@string/title_activity_info_lista_avisos"
             android:theme="@style/AppTheme.CustomTheme" >
         </activity>
+
     </application>
 
 </manifest>

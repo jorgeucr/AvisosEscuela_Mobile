@@ -27,4 +27,5 @@
     <string name="title_activity_test22">Test22</string>
     <string name="title_activity_descripcion_avisos">DescripcionAvisos</string>
     <string name="title_activity_info_lista_avisos">InfoListaAvisos</string>
+    <string name="title_activity_borrar">borrar</string>
 </resources>
