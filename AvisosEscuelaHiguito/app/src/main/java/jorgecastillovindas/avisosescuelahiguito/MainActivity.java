@@ -1,7 +1,10 @@
 package jorgecastillovindas.avisosescuelahiguito;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -99,6 +102,7 @@ public class MainActivity extends ActionBarActivity {
             }
         });*/
 
+
          final ListView lista = (ListView) findViewById(R.id.lvwOpciones);
          adapter = new ListViewAdapter(this, titulo, imagenes);
          lista.setAdapter(adapter);
@@ -139,11 +143,28 @@ public class MainActivity extends ActionBarActivity {
                  }
                  Intent intent = new Intent(MainActivity.this, ListaAvisos.class);
                  intent.putExtras(bundle);
-                 startActivity(intent);
+
+                 abrirSiguienteVentana(intent);
              }
          });
 
 
+    }
+
+    public static boolean verificaConexion(Context ctx) {
+        boolean bConectado = false;
+        ConnectivityManager connec = (ConnectivityManager) ctx
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
+        // No sólo wifi, también GPRS
+        NetworkInfo[] redes = connec.getAllNetworkInfo();
+        // este bucle debería no ser tan ñapa
+        for (int i = 0; i < 2; i++) {
+            // ¿Tenemos conexión? ponemos a true
+            if (redes[i].getState() == NetworkInfo.State.CONNECTED) {
+                bConectado = true;
+            }
+        }
+        return bConectado;
     }
 
     @Override
@@ -160,5 +181,14 @@ public class MainActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         return super.onOptionsItemSelected(item);
+    }
+    public void abrirSiguienteVentana(Intent intent){
+        if (!verificaConexion(this)) {
+            Toast.makeText(getApplicationContext(), "Sin servicio a internet", Toast.LENGTH_SHORT).show();
+
+            //this.finish();
+        }else{
+            startActivity(intent);
+        }
     }
 }
